@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<channels id="1" name="用户管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="1"/>
+		
+		<channels id="2" name="用户管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="1"/>
+		<channels id="3" name="用户管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="1"/>
+		<channels id="4" name="用户管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="1"/>
+		<channels id="5" name="用户管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="1"/>
+		
+	<channels id="6" name="文章管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="2"/>
+		
+		<channels id="7" name="文章管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="6"/>
+		<channels id="8" name="文章管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="6"/>
+		<channels id="9" name="文章管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="6"/>
+		<channels id="10" name="文章管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="6"/>
+	
+	<channels id="11" name="系统管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="3"/>
+		
+		<channels id="12" name="系统管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="11"/>
+		<channels id="13" name="系统管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="11"/>
+		<channels id="14" name="系统管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="11"/>
+		<channels id="15" name="系统管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="11"/>
+	
+	<channels id="16" name="招生管理模块" custom_link="0" custom_link_url="#" type="0" 
+		is_index="0" is_top_nav="0" recommend="0" status="0" orders="4"/>
+		
+		<channels id="17" name="招生管理1" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="1" pid="16"/>
+		<channels id="18" name="招生管理2" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="2" pid="16"/>
+		<channels id="19" name="招生管理3" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="3" pid="16"/>
+		<channels id="20" name="招生管理4" custom_link="0" custom_link_url="#" type="0" 
+			is_index="0" is_top_nav="0" recommend="0" status="0" orders="4" pid="16"/>
+	
+</dataset>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<!-- SQL dialect -->
+	<property name="dialect">
+		org.hibernate.dialect.MySQL5InnoDBDialect
+	</property>
+
+	<!-- Echo all executed SQL to stdout -->
+	<property name="show_sql">true</property>
+
+	<!-- Drop and re-create the database schema on startup-->
+	<property name="hbm2ddl.auto">update</property>
+	<mapping class="com.cms.entity.Attachment" />
+	<mapping class="com.cms.entity.Channel" />
+	<mapping class="com.cms.entity.Group" />
+	<mapping class="com.cms.entity.Keyword" />
+	<mapping class="com.cms.entity.Role" />
+	<mapping class="com.cms.entity.Topic" />
+	<mapping class="com.cms.entity.User" />
+
+
+
+</session-factory>
+</hibernate-configuration>

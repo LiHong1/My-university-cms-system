@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.directwebremoting.org/schema/spring-dwr
+        http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd ">
+	<mvc:annotation-driven/>
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/**"/>
+            <bean class="com.cms.web.AuthInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+	<!-- 
+	 导致事务失效不提交的可能原因
+	 spring的配置文件 与springMVC的配置文件对包的重复扫描装配会造成失效
+	 springMVC产生的是子容器，子容器Controller进行扫描装配时装配了@Service注解的实例，而该实例理应由父容器进行初始化以保证事务的增强处理，
+	 所以此时得到的将是原样的Service（没有经过事务加强处理，故而没有事务处理能力
+	 -->
+	<context:component-scan base-package="com.cms">
+	  <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" /> 
+      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" /> 
+	</context:component-scan>
+	<!-- 配置dwr开始 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property value="true" name="alwaysUseFullPath"></property> 
+      <property name="mappings">
+        <props> 
+          <prop key="/dwr/**/*">dwrController</prop>
+        </props>
+     </property> 
+    </bean>
+    <dwr:controller id="dwrController" debug="false"/>
+    
+    <dwr:annotation-config id="dwrAnnotationConfig" />
+    <dwr:annotation-scan base-package="com.cms.dwr" scanDataTransferObject="true"/>
+    <!-- 配置dwr结束 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+    <!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver -->  
+     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+       <property name="maxUploadSize" value="500000000"></property>
+       <property name="defaultEncoding" value="UTF-8"></property>
+     </bean>  
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.cms.beans.CmsException">error</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>
